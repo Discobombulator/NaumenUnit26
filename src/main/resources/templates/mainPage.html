@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen Onboarding | Личный кабинет</title>
+    <style>
+        :root {
+            --n-orange: #FF6B00;
+            --n-dark: #2D2D2D;
+            --n-bg: #F8F9FA;
+            --n-white: #ffffff;
+            --n-border: #E0E0E0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--n-bg);
+            margin: 0;
+            color: var(--n-dark);
+        }
+
+        /* --- ВЕРХНЯЯ ШАПКА (САЙТ) --- */
+        .site-header {
+            background: var(--n-white);
+            border-bottom: 1px solid var(--n-border);
+            padding: 10px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-box {
+            width: 140px;
+            height: 40px;
+            background-image: url('static/logoN.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .site-nav a {
+            text-decoration: none;
+            color: var(--n-dark);
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- МЕНЮ СЕРВИСА (ВКЛАДКИ ПРОЕКТА) --- */
+        .app-menu {
+            background: var(--n-white);
+            padding: 0 60px;
+            display: flex;
+            gap: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .menu-item {
+            padding: 15px 5px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+        }
+
+        .menu-item.active {
+            color: var(--n-orange);
+            border-bottom-color: var(--n-orange);
+        }
+
+        /* --- КОНТЕНТ --- */
+        .main-content {
+            max-width: 1200px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--n-white);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            margin-bottom: 25px;
+        }
+
+        /* Путь сотрудника */
+        .path-container {
+            margin-top: 20px;
+        }
+
+        .path-step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .step-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--n-white);
+            border: 2px solid var(--n-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .step-circle.done {
+            background: var(--n-orange);
+            color: white;
+        }
+
+        /* БОТ (ЧАТ) */
+        #bot-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 320px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-top: 4px solid var(--n-orange);
+            display: block; /* Скрывать через JS: none */
+            z-index: 1000;
+        }
+
+        .bot-header {
+            padding: 15px;
+            background: #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .close-bot {
+            cursor: pointer;
+            font-size: 20px;
+            color: #999;
+        }
+
+        .bot-body {
+            padding: 20px;
+            height: 200px;
+            overflow-y: auto;
+            font-size: 14px;
+        }
+
+        .bot-input {
+            border-top: 1px solid #eee;
+            padding: 10px;
+            display: flex;
+        }
+
+        .bot-input input {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 5px;
+        }
+
+        .avatar-small {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #eee;
+            margin-right: 10px;
+        }
+
+        .member-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="logo-box"></div>
+    <nav class="site-nav">
+        <a href="#">Продукты</a>
+        <a href="#">Услуги</a>
+        <a href="#">Клиенты</a>
+        <a href="#">О нас</a>
+        <a href="#">Карьера</a>
+        <span style="font-size: 12px; font-weight: bold;">+7 (495) 145 90 45</span>
+    </nav>
+</header>
+
+<div class="app-menu">
+    <div class="menu-item active">Интерактивный путь</div>
+    <div class="menu-item">Кто есть кто</div>
+    <div class="menu-item">Сбор обратной связи</div>
+    <div class="menu-item">Панель управления (HR)</div>
+</div>
+
+<main class="main-content">
+
+    <section>
+        <div class="card">
+            <h2 style="margin-top:0">Привет, Алексей! 🚀</h2>
+            <p style="color: #666">Твой испытательный срок пройден на <b>35%</b>. Давай посмотрим, что осталось.</p>
+
+            <div class="path-container">
+                <div class="path-step">
+                    <div class="step-circle done">✓</div>
+                    <div>
+                        <h4 style="margin:0">Оформление и доступ</h4>
+                        <small>Выполнено: 12.05.2026</small>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="step-circle">2</div>
+                    <div>
+                        <h4 style="margin:0">Знакомство с регламентами</h4>
+                        <p style="margin:5px 0; font-size: 14px; color: #444;">Изучи базу знаний в Naumen KMS и пройди тест.</p>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="step-circle">3</div>
+                    <div>
+                        <h4 style="margin:0">Первая задача в Jira</h4>
+                        <small>Срок: до конца недели</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <aside>
+        <div class="card">
+            <h3>Мои наставники</h3>
+            <div class="member-row">
+                <div class="avatar-small" style="background: #FFD4B5; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#E66000">ДП</div>
+                <div>
+                    <div style="font-weight:bold; font-size:14px">Дмитрий Петров</div>
+                    <div style="font-size:12px; color:#888">Team Lead / Наставник</div>
+                </div>
+            </div>
+            <div class="member-row">
+                <div class="avatar-small" style="background: #E0E0E0; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#666">МС</div>
+                <div>
+                    <div style="font-weight:bold; font-size:14px">Мария Сидорова</div>
+                    <div style="font-size:12px; color:#888">HR-менеджер</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background: #FFF9F5; border: 1px solid #FFE0CC;">
+            <h4 style="margin-top:0; color: var(--n-orange)">Weekly Pulse</h4>
+            <p style="font-size: 13px">Все ли доступы у тебя есть?</p>
+            <button style="background: var(--n-orange); color:white; border:none; padding:8px 15px; border-radius:8px; cursor:pointer; width:100%; font-weight:bold">Пройти опрос</button>
+        </div>
+    </aside>
+</main>
+
+<div id="bot-widget">
+    <div class="bot-header">
+        <span style="font-weight:bold; font-size:14px">🤖 Ассистент Naumen</span>
+        <span class="close-bot" onclick="toggleBot()">×</span>
+    </div>
+    <div class="bot-body">
+        <div style="background:#f0f0f0; padding:10px; border-radius:10px; margin-bottom:10px; font-size:13px">
+            Привет! Я помогу с регламентами. <br><br>
+            Популярные вопросы:<br>
+            • Как заказать пропуск?<br>
+            • Как оформить отпуск?<br>
+            • Где найти Service Desk?
+        </div>
+    </div>
+    <div class="bot-input">
+        <input type="text" placeholder="Введите ваш вопрос...">
+    </div>
+</div>
+
+<script>
+    function toggleBot() {
+        const bot = document.getElementById('bot-widget');
+        bot.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
